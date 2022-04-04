@@ -144,3 +144,9 @@ vector<int> result(2,0); // array(size, values)
 ```cpp
 int lenght = arr.size();
 ```
+
+### Reverse array
+
+```cpp
+reverse(arr.begin(), arr.end());
+```
