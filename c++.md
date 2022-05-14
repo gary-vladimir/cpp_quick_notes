@@ -68,6 +68,23 @@ fórmula para fácilmente sumar todos los números de 1 a n
 n*(n+1)/2
 ```
 
+### Elevate A to the power of N efficient recursion solution
+
+```cpp
+typedef long long int llint;
+
+llint exp(llint a, llint n){
+  if(n == 0)return 1;
+  if(n == 1)return a;
+  if(n%2 == 0){
+    llint resultado = exp(a, n/2);
+    return resultado * resultado;
+  }else{
+    return exp(a, n-1) * a;
+  }
+}
+```
+
 ## Printing
 
 ### Specify decimal places - Float
@@ -130,6 +147,8 @@ int ma = max(5, 3) // 5
 
 ## Strings
 
+In c++ strings are mutable like an array
+
 ### Get lenght of string
 
 ```cpp
@@ -155,6 +174,18 @@ reverse(str.begin(), str.end());
 cout << str; // aloH
 ```
 
+### multi line string
+
+if you have a shape, and you want to save it as a string. Alt+92 \
+
+```cpp
+string shape =
+"\
+shape with spaces and everything\n\
+        taste it out\n\
+";
+```
+
 ### Iterate through string
 
 ```cpp
@@ -175,6 +206,12 @@ if (str.find(c) < str.length()) {
 
 ```cpp
 string row(5,'a'); // ->"aaaaa" second param must be char
+```
+
+### Insert string in another string at index
+
+```cpp
+str1.insert(str2, index);
 ```
 
 ## Data types conversions
@@ -228,7 +265,9 @@ char char_upper = toupper('d'); // Output: 'D'
 
 ```cpp
 #include <vector>
-vector<int> result(2,0); // array(size, values)
+vector<int> arr(2,0); // array(length, values)
+
+vector<vector<int>> matrix(height, vector<int>(width, 0));
 ```
 
 ### Get length of arr
@@ -275,6 +314,14 @@ sort(arr.begin(), arr.end());   // acsending order
 sort(arr.rbegin(), arr.rend()); // decending order
 ```
 
+### Find element in array
+
+```cpp
+#include <bits/stdc++.h>
+auto itr = find(arr.begin(), arr.end(), element_to_look_for);
+int index = itr - arr.begin();
+```
+
 ## Pairs
 
 ### Initialization
@@ -299,7 +346,7 @@ vector<pair<int, int>> personas_famosas; // {fans, id}
 sort(personas_famosas.rbegin(), personas_famosas.rend()); // decending order
 ```
 
-### Binary Search
+## Binary Search
 
 The following code demostrates a non-recursive solution for a binary search
 
@@ -317,4 +364,135 @@ int binary_search(vector<int> arr, int n) {
   }
   return -1;  // if found nothing, return -1
 }
+```
+
+### Find the next greater element to value in an array
+
+```cpp
+// arr = {10,20,5,30,20,10,10,20};
+vector<int>::iterator upper = upper_bound(arr.begin(), arr.end(), 20);
+int a = upper - arr.begin(); // this will return the index 3
+```
+
+## Maps
+
+maps are containers that can store elements formed by a combination of a key and value. By default, the map is in acsending order based on it's keys. They are normaly used if you want to efficiently find if an element is in the container.
+
+### Initialization
+
+```cpp
+#include <map>
+map<int, int> my_map;
+// add elements with insert
+my_map.insert({ 2, 30 });
+my_map.insert({ 1, 40 });
+my_map.insert({ 3, 20 });
+my_map.insert({ 4, 50 });
+// add elements method 2
+my_map[5] = 60;
+my_map[6] = 80;
+```
+
+### Map - Iteration
+
+```cpp
+for(auto& e:my_map){
+    cout << e.first << e.second << endl;
+  }
+```
+
+### Map - find element
+
+```cpp
+#include <bits/stdc++.h> // find()
+auto itr = my_map.find(3); // it returns an iterator
+cout << itr->first << '\t' << itr->second << '\n'; // print the key and value
+```
+
+```cpp
+bool is_in = my_map.find(element) != my_map.end();
+```
+
+### Modify Map
+
+```cpp
+// Method 1
+auto itr = my_map.find(element);
+itr->second = new_second_value;
+
+// Method2
+my_map[element] = new_second_value;
+```
+
+### Sort Map
+
+`grater<int>` makes it have a decending order, without it, it would have an acending order
+
+```cpp
+#include <bits/stdc++.h>
+void sort(map<string, int>& M) {
+  multimap<int, string, greater<int> > MM;  // Declare a multimap
+
+  for (auto& it : M) {
+    MM.insert({it.second, it.first});
+  }
+  for (auto& it : MM) {
+    cout << it.second << ' ' << it.first << endl;
+  }
+}
+```
+
+### Sets
+
+### Initialization
+
+```cpp
+#include <set>
+set<int>my_set;
+my_set.insert(20);
+```
+
+### Check if element in set
+
+```cpp
+bool is_in = my_set.find(element) != my_set.end();
+```
+
+### Iterating through set
+
+```cpp
+for(auto itr:my_set){
+  cout << itr << ",";
+}
+```
+
+## Tuples
+
+### Initialization
+
+```cpp
+#include<tuple>
+tuple<int, int, int, int> my_tuple;
+my_tuple = make_tuple(0,1,2,3);
+```
+
+### Print values in tuple
+
+```cpp
+cout << get<0>(my_tuple) << " " << get<1>(my_tuple) << " " << get<2>(my_tuple) << endl;
+```
+
+### Modify values in tuple
+
+```cpp
+get<0>(my_tuple) = new_value;
+```
+
+### Sort array of tuples
+
+```cpp
+vector<tuple<int,int,int,int>>arr;
+tuple<int, int, int, int> my_tuple;
+// ... create tuples and adding them to array ...
+sort(arr.begin(), arr.end()); // in relation to first element of the pair, if tie, in relation to second, if tie again, in relation to third element and so on.
 ```
