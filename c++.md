@@ -35,6 +35,14 @@ string full_input;
 getline(cin, full_input);
 ```
 
+### Get input from a input.in file
+
+```cpp
+#include <fstream>
+ifstream input_file("mensajes.in");
+input_file >> n; // instead of cin
+```
+
 ## Math
 
 ### Count how many digits in Int
@@ -111,6 +119,15 @@ cout<<"Floats"<<setw(20);
 cout<<"Doubles"<<setw(20) << endl;
 ```
 
+### Print to an output.out file
+
+```cpp
+#include <fstream>
+ofstream output("mensajes.out");
+output << "SI" << endl << "D"; // instead of cout
+output.close();
+```
+
 ## Ints - Floats
 
 ### Sum large numbers
@@ -163,6 +180,11 @@ int length = str.size();
 for_each(str.begin(), str.end(), [](char & c) {
     c = ::toupper(c);
 });
+```
+
+```cpp
+#include <bits/stdc++.h>
+transform(str.begin(), str.end(), str.begin(), ::tolower);
 ```
 
 ### Invert a string
@@ -298,6 +320,12 @@ arr.pop_back()
 
 ```cpp
 arr.erase(arr.begin() + index);
+```
+
+### Remove element from array by value
+
+```cpp
+arr.erase(remove(arr.begin(), arr.end(), value), arr.end());
 ```
 
 ### Remove first element of array
