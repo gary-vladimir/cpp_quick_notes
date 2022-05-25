@@ -153,6 +153,24 @@ int last_digit_of_year = year % 10;
 int last_two_digits_of_year = year % 100;
 ```
 
+### Get only decimal part from num
+
+```cpp
+// Method 1
+#include <cmath>
+double n = 536.856;
+double entero;
+double decimal = modf(input, &entero);
+cout << entero << decimal;
+
+// Method 2
+string entero, decimal;
+getline(cin, entero, '.');
+getline(cin, decimal);
+int entero = stoi(entero);
+int decimal = stoi(decimal);
+```
+
 ### Get min or max from two numbers
 
 ```cpp
@@ -470,7 +488,7 @@ void sort(map<string, int>& M) {
 }
 ```
 
-### Sets
+## Sets
 
 ### Initialization
 
@@ -523,4 +541,25 @@ vector<tuple<int,int,int,int>>arr;
 tuple<int, int, int, int> my_tuple;
 // ... create tuples and adding them to array ...
 sort(arr.begin(), arr.end()); // in relation to first element of the pair, if tie, in relation to second, if tie again, in relation to third element and so on.
+```
+
+## Queues
+
+### Initialization
+
+```cpp
+#include <queue>
+queue<int>my_queue;
+```
+
+### Common methods
+
+```cpp
+my_queue.push(10);
+my_queue.push(20);
+my_queue.size() // 2;
+my_queue.empty() // false;
+my_queue.front() // 10
+my_queue.back() // 20
+my_queue.pop() // removes front;
 ```
