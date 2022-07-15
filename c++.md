@@ -76,6 +76,12 @@ fórmula para fácilmente sumar todos los números de 1 a n
 n*(n+1)/2
 ```
 
+formula para sumar todos los números de A - B
+
+```cpp
+((a+b)*(b-a+1))/2
+```
+
 ### Elevate A to the power of N efficient recursion solution
 
 ```cpp
@@ -239,6 +245,14 @@ for (char& c : str) { // <----- for char in string
 ```cpp
 if (str.find(c) < str.length()) {
     /* Code */
+}
+```
+
+### Check if string in string
+
+```cpp
+if (str.find(str2) != string::npos) {
+//.. found.
 }
 ```
 
