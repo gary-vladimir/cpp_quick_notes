@@ -406,26 +406,6 @@ vector<pair<int, int>> personas_famosas; // {fans, id}
 sort(personas_famosas.rbegin(), personas_famosas.rend()); // decending order
 ```
 
-## Binary Search
-
-The following code demostrates a non-recursive solution for a binary search
-
-```cpp
-int binary_search(vector<int> arr, int n) {
-  int index_a = 0;
-  int index_b = arr.size() - 1;
-  while (index_a <= index_b) {
-    int k = ((index_b - index_a) / 2) + index_a;
-    if (arr[k] == n) return k;
-    if (arr[k] < n)
-      index_a = k + 1;
-    else
-      index_b = k - 1;
-  }
-  return -1;  // if found nothing, return -1
-}
-```
-
 ### Find the next greater element to value in an array
 
 ```cpp
@@ -576,4 +556,64 @@ my_queue.empty() // false;
 my_queue.front() // 10
 my_queue.back() // 20
 my_queue.pop() // removes front;
+```
+
+## Binary Search
+
+The following code demostrates a non-recursive solution for a binary search
+
+```cpp
+int binary_search(vector<int> arr, int n) {
+  int index_a = 0;
+  int index_b = arr.size() - 1;
+  while (index_a <= index_b) {
+    int k = ((index_b - index_a) / 2) + index_a;
+    if (arr[k] == n) return k;
+    if (arr[k] < n)
+      index_a = k + 1;
+    else
+      index_b = k - 1;
+  }
+  return -1;  // if found nothing, return -1
+}
+```
+
+## Sieve - Criba
+
+```cpp
+const int MAX = 1000010;
+vector<ll> primos;
+
+void init_criba() {
+  bitset<MAX> criba;
+  criba[0] = criba[1] = 1;
+  primos.push_back(2);
+  for (ll i = 3; i < MAX; i += 2) {
+    if (criba[i] == 0) {
+      primos.push_back(i);
+      for (ll j = i; j < MAX; j += i) criba[j] = 1;
+    }
+  }
+}
+```
+
+## Factorización Prima
+
+```cpp
+vector<ll> factores_primos(ll N) {
+  vector<ll> factores;
+  ll limit = sqrt(N);
+  for (int i = 0; i < primos.size() && primos[i] <= limit; i++) {
+    bool add = true;
+    while (N % primos[i] == 0) {
+      if (add) {
+        factores.push_back(primos[i]);
+        add = false;
+      }
+      N /= primos[i];
+    }
+  }
+  if (N > 1) factores.push_back(N);
+  return factores;
+}
 ```
