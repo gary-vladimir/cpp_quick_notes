@@ -1,3 +1,81 @@
+- [c++ quick notes](#c---quick-notes)
+  - [Get Input](#get-input)
+    - [get N size array](#get-n-size-array)
+    - [get undefied size input](#get-undefied-size-input)
+    - [Get entire line as string](#get-entire-line-as-string)
+    - [Get input from a input.in file](#get-input-from-a-inputin-file)
+  - [Math](#math)
+    - [Count how many digits in Int](#count-how-many-digits-in-int)
+    - [Power and square root](#power-and-square-root)
+    - [Less common multiple (LCM) and greatest common divisor (GCD)](#less-common-multiple--lcm--and-greatest-common-divisor--gcd-)
+    - [Sumar todos los números de 1 a N](#sumar-todos-los-n-meros-de-1-a-n)
+    - [Elevate A to the power of N efficient recursion solution](#elevate-a-to-the-power-of-n-efficient-recursion-solution)
+  - [Printing](#printing)
+    - [Specify decimal places - Float](#specify-decimal-places---float)
+    - [Add enter after cout](#add-enter-after-cout)
+    - [Print with custom width](#print-with-custom-width)
+    - [Print to an output.out file](#print-to-an-outputout-file)
+  - [Ints - Floats](#ints---floats)
+    - [Sum large numbers](#sum-large-numbers)
+    - [Get absolute value of Int](#get-absolute-value-of-int)
+    - [Get last digit of Int](#get-last-digit-of-int)
+    - [Get only decimal part from num](#get-only-decimal-part-from-num)
+    - [Get min or max from two numbers](#get-min-or-max-from-two-numbers)
+  - [Strings](#strings)
+    - [Get lenght of string](#get-lenght-of-string)
+    - [Convert entire string to upper case or lower case](#convert-entire-string-to-upper-case-or-lower-case)
+    - [Invert a string](#invert-a-string)
+    - [multi line string](#multi-line-string)
+    - [Iterate through string](#iterate-through-string)
+    - [Check if char in string](#check-if-char-in-string)
+    - [Check if string in string](#check-if-string-in-string)
+    - [Initialize string of N size and chars](#initialize-string-of-n-size-and-chars)
+    - [Insert string in another string at index](#insert-string-in-another-string-at-index)
+  - [Data types conversions](#data-types-conversions)
+    - [Convert int to string](#convert-int-to-string)
+    - [Convert char to int](#convert-char-to-int)
+    - [Convert string to int](#convert-string-to-int)
+    - [convert all letters of the alphabet to numbers 'a'-1, 'b'-2, 'c'-3, ...](#convert-all-letters-of-the-alphabet-to-numbers--a--1---b--2---c--3--)
+    - [Convert char to uppercase](#convert-char-to-uppercase)
+  - [Vector arrays](#vector-arrays)
+    - [Initialization](#initialization)
+    - [Get length of arr](#get-length-of-arr)
+    - [Reverse array](#reverse-array)
+    - [Add element to array](#add-element-to-array)
+    - [Remove last element of array](#remove-last-element-of-array)
+    - [Remove element from array by Index](#remove-element-from-array-by-index)
+    - [Remove element from array by value](#remove-element-from-array-by-value)
+    - [Remove first element of array](#remove-first-element-of-array)
+    - [Sort Array](#sort-array)
+    - [Find element in array](#find-element-in-array)
+  - [Pairs](#pairs)
+    - [Initialization](#initialization-1)
+    - [Sort array of pairs](#sort-array-of-pairs)
+    - [Find the next greater element to value in an array](#find-the-next-greater-element-to-value-in-an-array)
+  - [Maps](#maps)
+    - [Initialization](#initialization-2)
+    - [Map - Iteration](#map---iteration)
+    - [Map - find element](#map---find-element)
+    - [Modify Map](#modify-map)
+    - [Sort Map](#sort-map)
+  - [Sets](#sets)
+    - [Initialization](#initialization-3)
+    - [Check if element in set](#check-if-element-in-set)
+    - [Iterating through set](#iterating-through-set)
+  - [Tuples](#tuples)
+    - [Initialization](#initialization-4)
+    - [Print values in tuple](#print-values-in-tuple)
+    - [Modify values in tuple](#modify-values-in-tuple)
+    - [Sort array of tuples](#sort-array-of-tuples)
+  - [Queues](#queues)
+    - [Initialization](#initialization-5)
+    - [Common methods](#common-methods)
+  - [Binary Search](#binary-search)
+  - [Sieve - Criba](#sieve---criba)
+  - [Factorización Prima](#factorizaci-n-prima)
+  - [Really Large Multiplication - Strings](#really-large-multiplication---strings)
+  - [Really Large Sum - Strings](#really-large-sum---strings)
+
 # c++ quick notes
 
 ## Get Input
@@ -615,5 +693,70 @@ vector<ll> factores_primos(ll N) {
   }
   if (N > 1) factores.push_back(N);
   return factores;
+}
+```
+
+## Really Large Multiplication - Strings
+
+```cpp
+string multiply(string num1, string num2) {
+  int len1 = num1.size();
+  int len2 = num2.size();
+  if (len1 == 0 || len2 == 0) return "0";
+  vector<int> result(len1 + len2, 0);
+  int i_n1 = 0;
+  int i_n2 = 0;
+  for (int i = len1 - 1; i >= 0; i--) {
+    int carry = 0;
+    int n1 = num1[i] - '0';
+    i_n2 = 0;
+    for (int j = len2 - 1; j >= 0; j--) {
+      int n2 = num2[j] - '0';
+      int sum = n1 * n2 + result[i_n1 + i_n2] + carry;
+      carry = sum / 10;
+      result[i_n1 + i_n2] = sum % 10;
+      i_n2++;
+    }
+    if (carry > 0) result[i_n1 + i_n2] += carry;
+
+    i_n1++;
+  }
+  int i = result.size() - 1;
+  while (i >= 0 && result[i] == 0) i--;
+  if (i == -1) return "0";
+  string s = "";
+
+  while (i >= 0) s += to_string(result[i--]);
+
+  return s;
+}
+```
+
+## Really Large Sum - Strings
+
+```cpp
+string findSum(string str1, string str2) {
+  if (str1.length() > str2.length()) swap(str1, str2);
+  string str = "";
+  int n1 = str1.length(), n2 = str2.length();
+  int diff = n2 - n1;
+  int carry = 0;
+  for (int i = n1 - 1; i >= 0; i--) {
+    int sum = ((str1[i] - '0') + (str2[i + diff] - '0') + carry);
+    str.push_back(sum % 10 + '0');
+    carry = sum / 10;
+  }
+
+  for (int i = n2 - n1 - 1; i >= 0; i--) {
+    int sum = ((str2[i] - '0') + carry);
+    str.push_back(sum % 10 + '0');
+    carry = sum / 10;
+  }
+
+  if (carry) str.push_back(carry + '0');
+
+  reverse(str.begin(), str.end());
+
+  return str;
 }
 ```
