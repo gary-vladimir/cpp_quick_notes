@@ -9,6 +9,8 @@
     - [Power and square root](#power-and-square-root)
     - [Less common multiple (LCM) and greatest common divisor (GCD)](#less-common-multiple--lcm--and-greatest-common-divisor--gcd-)
     - [Sumar todos los números de 1 a N](#sumar-todos-los-n-meros-de-1-a-n)
+    - [2 to the power of N](#2-to-the-power-of-n)
+    - [Check if N is prime using bits](#check-if-n-is-prime-using-bits)
     - [Elevate A to the power of N efficient recursion solution](#elevate-a-to-the-power-of-n-efficient-recursion-solution)
   - [Printing](#printing)
     - [Specify decimal places - Float](#specify-decimal-places---float)
@@ -158,6 +160,18 @@ formula para sumar todos los números de A - B
 
 ```cpp
 ((a+b)*(b-a+1))/2
+```
+
+### 2 to the power of N
+
+```cpp
+(1<<n)
+```
+
+### Check if N is prime using bits
+
+```cpp
+if(!(n & 1))cout << "prime";
 ```
 
 ### Elevate A to the power of N efficient recursion solution
