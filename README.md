@@ -74,6 +74,7 @@
     - [Common methods](#common-methods)
   - [Binary Search](#binary-search)
   - [Sieve - Criba](#sieve---criba)
+  - [Buscar cuantos divisores tiene N](#buscar-cuantos-divisores-tiene-n)
   - [Factorización Prima](#factorizaci-n-prima)
   - [Really Large Multiplication - Strings](#really-large-multiplication---strings)
   - [Really Large Sum - Strings](#really-large-sum---strings)
@@ -686,6 +687,28 @@ void init_criba() {
       for (ll j = i; j < MAX; j += i) criba[j] = 1;
     }
   }
+}
+```
+
+## Buscar cuantos divisores tiene N
+
+```cpp
+int num_divisors(int n) {
+  // vector<int>divisores;
+  int contador = 0;
+  int limite = sqrt(n);
+  for (int i = 1; i <= limite; ++i) {
+    if (n % i == 0) {
+      // divisores.push_back(i);
+      contador++;
+      if (i * i == n) {
+        continue;
+      }
+      // divisores.push_back(n/i);
+      contador++;
+    }
+  }
+  return contador;
 }
 ```
 
