@@ -673,15 +673,15 @@ The following code demostrates a non-recursive solution for a binary search
 
 ```cpp
 int binary_search(vector<int> arr, int n) {
-  int index_a = 0;
-  int index_b = arr.size() - 1;
-  while (index_a <= index_b) {
-    int k = ((index_b - index_a) / 2) + index_a;
-    if (arr[k] == n) return k;
-    if (arr[k] < n)
-      index_a = k + 1;
+  int a = 0;
+  int b = arr.size() - 1;
+  while (a <= b) {
+    int m = (a+b)/2;
+    if (arr[m] == n) return m;
+    if (arr[m] < n)
+      a = m + 1;
     else
-      index_b = k - 1;
+      b = m - 1;
   }
   return -1;  // if found nothing, return -1
 }
