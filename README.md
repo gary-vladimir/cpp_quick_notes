@@ -164,6 +164,20 @@ formula para sumar todos los números de A - B
 ((a+b)*(b-a+1))/2
 ```
 
+### Formulas - divisores y primos
+
+formula para generar número a partir de los primos y sus exponentes
+
+```
+c = P1**q1 x P2**q2 x P3**q3 ... Pn**qn
+```
+
+formula para saber el número de divisores a partir de sus exponentes
+
+```
+div = (1+q1)*(1+q2)*(1+q3)....(1+qn)
+```
+
 ### 2 to the power of N
 
 ```cpp
