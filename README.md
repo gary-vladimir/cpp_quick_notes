@@ -9,6 +9,7 @@
     - [Power and square root](#power-and-square-root)
     - [Less common multiple (LCM) and greatest common divisor (GCD)](#less-common-multiple--lcm--and-greatest-common-divisor--gcd-)
     - [Sumar todos los números de 1 a N](#sumar-todos-los-n-meros-de-1-a-n)
+    - [Formulas - divisores y primos](#formulas---divisores-y-primos)
     - [2 to the power of N](#2-to-the-power-of-n)
     - [Check if N is prime using bits](#check-if-n-is-prime-using-bits)
     - [Elevate A to the power of N efficient recursion solution](#elevate-a-to-the-power-of-n-efficient-recursion-solution)
