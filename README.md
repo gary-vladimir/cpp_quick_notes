@@ -78,6 +78,7 @@
   - [Factorización Prima](#factorizaci-n-prima)
   - [Really Large Multiplication - Strings](#really-large-multiplication---strings)
   - [Really Large Sum - Strings](#really-large-sum---strings)
+  - [Bit Mask - Check all possible combinations](#bit-mask---check-all-possible-combinations)
 
 # c++ quick notes
 
@@ -795,5 +796,22 @@ string findSum(string str1, string str2) {
   reverse(str.begin(), str.end());
 
   return str;
+}
+```
+
+## Bit Mask - Check all possible combinations
+
+```cpp
+vector<int>arr(n);
+for(int i=0; i<n; i++)cin >> arr[i];
+
+int final_mask = 1<<n;
+for(int mask=0; mask<final_mask; mask++){
+  int suma = 0;
+  for(int i=n-1; i>=0; i--){
+    if(mask & (1<<i)){cout << "X"; suma += arr[i];}
+    else cout << "A";
+  }
+  cout << " " << suma <<"\n";
 }
 ```
