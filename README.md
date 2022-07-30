@@ -194,9 +194,7 @@ if(!(n & 1))cout << "prime";
 ### Elevate A to the power of N efficient recursion solution
 
 ```cpp
-typedef long long int llint;
-
-llint exp(llint a, llint n){
+ll exp(ll a, ll n){
   if(n == 0)return 1;
   if(n == 1)return a;
   if(n%2 == 0){
