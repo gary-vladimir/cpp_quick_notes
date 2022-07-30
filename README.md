@@ -198,7 +198,7 @@ ll exp(ll a, ll n){
   if(n == 0)return 1;
   if(n == 1)return a;
   if(n%2 == 0){
-    llint resultado = exp(a, n/2);
+    ll resultado = exp(a, n/2);
     return resultado * resultado;
   }else{
     return exp(a, n-1) * a;
