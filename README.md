@@ -324,16 +324,7 @@ int length = str.size();
 ### Convert entire string to upper case or lower case
 
 ```cpp
-#include <algorithm>
-
-for_each(str.begin(), str.end(), [](char & c) {
-    c = ::toupper(c);
-});
-```
-
-```cpp
-#include <bits/stdc++.h>
-transform(str.begin(), str.end(), str.begin(), ::tolower);
+for (auto &e : str) e = tolower(e);
 ```
 
 ### Invert a string
