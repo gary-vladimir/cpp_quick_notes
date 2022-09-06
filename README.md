@@ -90,12 +90,8 @@
 ```cpp
 int n;
 cin >> n;
-int numbers[n];
-for (int i = 0; i < n; i++) {
-    int in_;
-    cin >> in_;
-    numbers[i] = in_;
-}
+vector<int> arr(n);
+for (auto &e : arr) cin >> e;
 ```
 
 ### get undefied size input
@@ -124,6 +120,17 @@ getline(cin, full_input);
 #include <fstream>
 ifstream input_file("mensajes.in");
 input_file >> n; // instead of cin
+```
+
+### Get input using `scanf`
+
+```cpp
+int n;
+scanf("%d", &n); // int
+float a;
+scanf("%f", &a); // float
+long long int n;
+scanf("%lld", &n); // long long int
 ```
 
 ## Math
@@ -220,6 +227,7 @@ cout << setprecision(3) << fixed; // this prints nothing, only sets the next pri
 
 ```cpp
 cout << "Hello" << endl;
+cout << "Hello2" << "\n"; // faster
 ```
 
 ### Print with custom width
@@ -239,6 +247,16 @@ cout<<"Doubles"<<setw(20) << endl;
 ofstream output("mensajes.out");
 output << "SI" << endl << "D"; // instead of cout
 output.close();
+```
+
+### Print using `printf`
+
+```cpp
+int a;
+float b;
+scanf("%d", &a);
+scanf("%f", &b);
+printf("imprimiendo int: %d seguido del float %f enter \n", a,b);
 ```
 
 ## Ints - Floats
