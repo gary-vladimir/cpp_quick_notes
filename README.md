@@ -895,3 +895,10 @@ struct Linked_List {
   }
 };
 ```
+
+```cpp
+Linked_List my_list // <-- create my_list object
+element example = {2, 3};
+vector<element> arr; // <-- arr of custom made elements
+arr.push_back(example);
+```
