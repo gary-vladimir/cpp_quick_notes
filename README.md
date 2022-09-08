@@ -4,6 +4,7 @@
     - [get undefied size input](#get-undefied-size-input)
     - [Get entire line as string](#get-entire-line-as-string)
     - [Get input from a input.in file](#get-input-from-a-inputin-file)
+    - [Get input using `scanf`](#get-input-using-scanf)
   - [Math](#math)
     - [Count how many digits in Int](#count-how-many-digits-in-int)
     - [Power and square root](#power-and-square-root)
@@ -38,6 +39,8 @@
     - [Convert int to string](#convert-int-to-string)
     - [Convert char to int](#convert-char-to-int)
     - [Convert string to int](#convert-string-to-int)
+    - [string to float](#string-to-float)
+    - [string to double](#string-to-double)
     - [convert all letters of the alphabet to numbers 'a'-1, 'b'-2, 'c'-3, ...](#convert-all-letters-of-the-alphabet-to-numbers--a--1---b--2---c--3--)
     - [Convert char to uppercase](#convert-char-to-uppercase)
   - [Vector arrays](#vector-arrays)
@@ -80,6 +83,7 @@
   - [Really Large Multiplication - Strings](#really-large-multiplication---strings)
   - [Really Large Sum - Strings](#really-large-sum---strings)
   - [Bit Mask - Check all possible combinations](#bit-mask---check-all-possible-combinations)
+  - [Structs - Linked list example](#structs---linked-list-example)
 
 # c++ quick notes
 
@@ -857,4 +861,37 @@ for(int mask=0; mask<final_mask; mask++){
   }
   cout << " " << suma <<"\n";
 }
+```
+
+## Structs - Linked list example
+
+```cpp
+struct element {
+  int i, j;
+  bool operator<(const element &b) const { return j < b.j; }
+};
+
+struct Node {
+  int value;
+  Node *next;
+};
+
+struct Linked_List {
+  Node *head = NULL;
+  Node *tail = NULL;
+  int num_elements = 0;
+  void push(int value) {
+    Node *new_node = new Node;
+    new_node->value = value;
+    new_node->next = NULL;
+    if (head == NULL) {
+      head = new_node;
+      tail = head;
+    } else {
+      tail->next = new_node;
+      tail = tail->next;
+    }
+    num_elements++;
+  }
+};
 ```
