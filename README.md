@@ -133,6 +133,11 @@ long long int n;
 scanf("%lld", &n); // long long int
 ```
 
+```cpp
+int a, b, c, d;
+scanf("%d %d %d %d", &a, &b, &c, &d);
+```
+
 ## Math
 
 ### Count how many digits in Int
