@@ -714,7 +714,7 @@ int binary_search(vector<int> &arr, int n) {
     else
       b = mid;
   }
-  if (arr[b] == n) return a;
+  if (arr[b] == n) return b;
   return -1;
 }
 ```
