@@ -409,6 +409,18 @@ int a = character - '0';
 int b = stoi(str_b);
 ```
 
+### string to float
+
+```cpp
+float b = stof(str);
+```
+
+### string to double
+
+```cpp
+double b = stod(str);
+```
+
 ### convert all letters of the alphabet to numbers 'a'-1, 'b'-2, 'c'-3, ...
 
 ```cpp
@@ -572,6 +584,10 @@ cout << itr->first << '\t' << itr->second << '\n'; // print the key and value
 
 ```cpp
 bool is_in = my_map.find(element) != my_map.end();
+
+if(my_map[element]){
+  // this method is better;
+}
 ```
 
 ### Modify Map
@@ -684,18 +700,18 @@ my_queue.pop() // removes front;
 The following code demostrates a non-recursive solution for a binary search
 
 ```cpp
-int binary_search(vector<int> arr, int n) {
-  int a = 0;
-  int b = arr.size() - 1;
-  while (a <= b) {
-    int m = (a+b)/2;
-    if (arr[m] == n) return m;
-    if (arr[m] < n)
-      a = m + 1;
+int binary_search(vector<int> &arr, int n) {
+  int a = -1;
+  int b = arr.size();
+  while (b - a > 1) {
+    int mid = (a + b) / 2;
+    if (arr[mid] < n)
+      a = mid;
     else
-      b = m - 1;
+      b = mid;
   }
-  return -1;  // if found nothing, return -1
+  if (arr[b] == n) return a;
+  return -1;
 }
 ```
 
