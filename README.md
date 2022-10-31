@@ -175,10 +175,27 @@ fórmula para fácilmente sumar todos los números de 1 a n
 n*(n+1)/2
 ```
 
-formula para sumar todos los números de A - B
+formula para sumar todos los números de A hasta B
 
 ```cpp
 ((a+b)*(b-a+1))/2
+```
+
+formula para sumar todos los números pares de 1 a n
+
+```cpp
+if (n % 2 == 0)
+  sumPares = ((n / 2) * (n + 2)) / 2;
+else
+  sumPares = (((n - 1) / 2) * ((n)-1 + 2)) / 2;
+
+sumImpares = (n * (n + 1) / 2) - sumPares;
+```
+
+fórmula para sumar todos los números de 0 a N que sean múltiplos de 3
+
+```cpp
+int sumMult = (n / 3) * (n + 3) / 2;
 ```
 
 ### Formulas - divisores y primos
