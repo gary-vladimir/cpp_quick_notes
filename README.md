@@ -73,6 +73,8 @@
     + [Initialization](#initialization-3)
     + [Check if element in set](#check-if-element-in-set)
     + [Iterating through set](#iterating-through-set)
+    + [Get the smallest element in Set](#get-the-smallest-element-in-set)
+    + [Get the biggest element in Set](#get-the-biggest-element-in-set)
     + [Erasing item from set](#erasing-item-from-set)
   * [Queues](#queues)
     + [Initialization](#initialization-4)
@@ -724,6 +726,20 @@ bool is_in = my_set.find(element) != my_set.end();
 for(auto e:my_set){
   cout << e << ",";
 }
+```
+
+<!-- TOC --><a name="get-the-smallest-element-in-set"></a>
+### Get the smallest element in Set
+
+```cpp
+cout << *my_set.begin();
+```
+
+<!-- TOC --><a name="get-the-biggest-element-in-set"></a>
+### Get the biggest element in Set
+
+```cpp
+cout << *my_set.rbegin(); // NOT .end()
 ```
 
 <!-- TOC --><a name="erasing-item-from-set"></a>
