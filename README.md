@@ -1,4 +1,5 @@
-<!-- TOC start -->
+<!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
+
 - [c++ quick notes](#c-quick-notes)
   * [Input - Output](#input-output)
     + [get N size array](#get-n-size-array)
@@ -6,6 +7,7 @@
     + [Get entire line as string](#get-entire-line-as-string)
     + [Get input from a input.in file](#get-input-from-a-inputin-file)
     + [Get input using `scanf`](#get-input-using-scanf)
+    + [Get N lines (int, string containing spacess)](#get-n-lines-int-string-containing-spacess)
     + [Specify decimal places - Float for output format](#specify-decimal-places-float-for-output-format)
     + [Add enter after cout](#add-enter-after-cout)
     + [Print with custom width](#print-with-custom-width)
@@ -87,7 +89,9 @@
   * [Really Large Sum - Strings](#really-large-sum-strings)
   * [Bit Mask - Check all possible combinations](#bit-mask-check-all-possible-combinations)
   * [Structs - Linked list example](#structs-linked-list-example)
+
 <!-- TOC end -->
+
 <!-- TOC --><a name="c-quick-notes"></a>
 # c++ quick notes
 
@@ -145,6 +149,28 @@ scanf("%f", &a); // float
 long long int n;
 scanf("%lld", &n); // long long int
 // getting strings is super inconvinient, use cin
+```
+
+<!-- TOC --><a name="get-n-lines-int-string-containing-spacess"></a>
+### Get N lines (int, string containing spacess)
+
+```cpp
+#include <string>
+#include <sstream>
+for (int i = 0; i < N; ++i) {
+    string line;
+    getline(cin, line);
+
+    istringstream iss(line);
+    int num;
+    string str;
+
+    iss >> num;          // Extract the integer
+    iss.ignore();        // Ignore the space
+    getline(iss, str); // Get the rest of the line as the string
+
+    data.push_back({num, str});
+}
 ```
 
 ```cpp
